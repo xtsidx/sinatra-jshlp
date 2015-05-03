@@ -133,7 +133,35 @@ analog of
 
 ### JS library
 
-TODO This functionality
+Register your library
+```ruby
+configure do
+  jslibreg( 
+    name: "datetimepicker",
+    jslinks: [ "/lib/datetimepicker/datetimepicker.js" ],
+    csslinks: [ "/lib/datetimepicker/datetimepicker.css" ]
+  )
+end
+```
+
+Use your library in view
+```erb
+<%
+  jslib "datetimepicker"
+  jscode "$('#dtp').datetimepicker();"
+%>
+<input id="dtp" type="text">
+```
+
+Analog code
+```erb
+<%
+  jslink "/lib/datetimepicker/datetimepicker.js"
+  csslink "/lib/datetimepicker/datetimepicker.css"
+  jscode "$('#dtp').datetimepicker();"
+%>
+<input id="dtp" type="text">
+```
 
 ## Development
 

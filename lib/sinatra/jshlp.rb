@@ -49,20 +49,20 @@ module Sinatra
 		end
 		
 		def jslib(name)
-			@jslibs ||= [] # уже подключённые библиотеки
-			return if @jslibs.include? name
-			@jslibs << name
-			case name
-			when "datetimepicker"
-				jslink "/lib/datetimepicker/jquery.datetimepicker.js"
-				csslink "/lib/datetimepicker/jquery.datetimepicker.css"
-			else
-				raise "Not know this javascript library: #{name}"
-			end
+			@jslibsreg ||= {} # зарегистрированные библиотеки
+			raise "Not know this jslib: #{name}" unless @jslibsreg.include? name
+			@jslibsreg[name][:jslinks].each{ |l| jslink l }
+			@jslibsreg[name][:csslinks].each{ |l| csslink l }
 		end
 		
-		def jslibreg(libs)
-			@jslibs ||= ""
+		def jslibreg(args)
+			@jslibsreg ||= {} # зарегистрированные библиотеки
+			name = args[:name]
+			raise "JSlib name must be set!" unless name
+			@jslibsreg[name] = {
+				jslinks: args[:jslinks] ||= [],
+				csslinks: args[:csslinks] ||= []
+			}
 		end
 		
   end
