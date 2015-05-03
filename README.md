@@ -26,7 +26,7 @@ In Classic Applications
 ```ruby
 # app.rb
 require 'sinatra'
-require 'sinatra-jshlp'
+require 'sinatra/jshlp'
 
 #...
 ```
@@ -36,7 +36,7 @@ In Modular Applications
 ```ruby
 # app.rb
 require 'sinatra/base'
-require 'sinatra-jshlp'
+require 'sinatra/jshlp'
 
 class MyApp < Sinatra::Base
   register Sinatra::JSHlp
