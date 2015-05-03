@@ -1,5 +1,3 @@
-require "sinatra/jshlp/version"
-
 module Sinatra
 	
   module JSHlp
