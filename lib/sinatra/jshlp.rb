@@ -52,7 +52,6 @@ module Sinatra
 			
 			def jslib(name)
 				libsreg = self.class.jshlp[:libsreg]
-				puts libsreg
 				raise "Not know this jslib: #{name}" unless libsreg.include? name
 				libsreg[name][:jslinks].each{ |l| jslink l }
 				libsreg[name][:csslinks].each{ |l| csslink l }
