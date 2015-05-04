@@ -87,8 +87,8 @@ Result HTML
 <body>
   <h1>Main Page</h1>
   <script src="/js/script.js"></script>
-  <script src="/js/mainpage.js"></script>
   <script src="/js/dateplugin.js"></script>
+  <script src="/js/mainpage.js"></script>
   <script>
     alert("Hello from Main Page!");
     alert('Thanx you!');
